@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900;9..40,1000&display=swap");
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+.gradient-1 {
+  background: linear-gradient(to right, #5a1cd6 20%, #9203ff 50%, #8a45a8 48%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-2 {
+  background: linear-gradient(to right, #243b96 20%, #19a895 48%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-3 {
+  background: linear-gradient(to right, #6e51a8 20%, #381da8 48%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f5faff;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  font-family: "DM Sans", sans-serif;
+}
+
+.shadow-yellow {
+  box-shadow: 3px 3px yellow;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f5faff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1b6fa8;
+  border-radius: 2px;
+  height: 300px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #13517e;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #0e3c5d;
+}
+
+@media screen and (max-width: 425px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+
+
+
+.react-horizontal-scrolling-menu--wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding-left: 0px;
+  position: relative;
+}
+
+.react-horizontal-scrolling-menu--scroll-container {
+  overflow: hidden;
+  padding: 30px 0px 30px 20px;
+}
+
+.popOut {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.no-manga {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 700px;
+  margin-top: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Add this CSS to your stylesheet */
+
+/* Style for the Link */
+.link-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Changed from align-items: flex-end; */
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+}
+
+/* Pseudo-element for the hover effect */
+.link-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #f4b333;
+  transition: left 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.link-item:hover::before {
+  left: 0;
+}
+
+.btn {
+  transition: background-color 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #e40066;
+  transition: left 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.btn:hover::before {
+  z-index: 0;
+  left: 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin-top: 20px;
+}
+
+.ellipsis {
+  margin: 0 5px; 
+  color: #888;
+  font-size: 25px;
+}
+
+.chapter-container:hover .chapter-title {
+  color: #FEC7B4; /* Change text color of title on hover */
+}
+
+
+.pagination button {
+  background-color: #1B6FA8;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button:hover {
+  background-color: #145686;
+}
+
+.pagination button.active {
+  background-color: #145686;
+}
+
+/* Custom scrollbar for pagination */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px; /* short height */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #E40066;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #c60059;
+}
+
+/* Hide scrollbar in Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #E40066 #f1f1f1;
+}
+
+@media screen and (max-width: 768px) {
+  .react-horizontal-scrolling-menu--scroll-container {
+    padding: 0px;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+  }
+}

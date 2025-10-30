@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(cuid())
+  username   String   @unique
+  email      String   @unique
+  password   String
+  role       String   @default("reader")
+  avatarUrl  String?
+  bio        String?
+  createdAt  DateTime @default(now())
+  mangas     Manga[]  @relation("uploader")
+  chapters   Chapter[] @relation("uploader")
+}
+
+model Manga {
+  id         String   @id @default(cuid())
+  title      String
+  altTitles  Json?
+  description String?
+  coverUrl   String?
+  genres     String[]
+  status     String
+  createdBy  String
+  createdAt  DateTime @default(now())
+  chapters   Chapter[]
+}
+
+model Chapter {
+  id            String   @id @default(cuid())
+  mangaId       String
+  volume        String?
+  chapterNumber Float
+  title         String?
+  language      String
+  pages         Json
+  uploaderId    String
+  published     Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  manga         Manga    @relation(fields: [mangaId], references: [id])
+  uploader      User     @relation("uploader", fields: [uploaderId], references: [id])
+}
